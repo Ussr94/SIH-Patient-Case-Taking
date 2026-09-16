@@ -21,9 +21,7 @@ st.set_page_config(
     layout="wide"
 )
 
-pytesseract.pytesseract.tesseract_cmd = (
-    r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-)
+pytesseract.pytesseract.tesseract_cmd = shutil.which("tesseract") or "tesseract"
 
 PATIENTS_FOLDER = "patients"
 
