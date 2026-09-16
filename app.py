@@ -25,7 +25,7 @@ pytesseract.pytesseract.tesseract_cmd = shutil.which("tesseract") or "tesseract"
 
 PATIENTS_FOLDER = "patients"
 
-PATIENT_URL = "http://192.168.1.3:8502/?entry=patient"
+PATIENT_URL = "https://ussr94-sih-patient-case-taking-app-lcbb9p.streamlit.app/?entry=patient"
 
 
 # ============================================================
