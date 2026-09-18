@@ -984,13 +984,20 @@ elif entry == "patient":
                                 audio.getvalue()
                             )
 
-                        result = model.transcribe(
-                            temp_audio,
-                            language=WHISPER_LANGUAGES[
-                                language
-                            ],
-                            fp16=False
-                        )
+                           result = model.transcribe(
+                              temp_audio,
+                              language=WHISPER_LANGUAGES[language],
+                              task="transcribe",
+                              initial_prompt=(
+                                "यह हिंदी भाषा है। हिंदी को केवल देवनागरी लिपि में लिखें। उर्दू लिपि का उपयोग न करें।"
+                                 if language == "Hindi"
+                                 else
+                                 "ही मराठी भाषा आहे. मराठी फक्त देवनागरी लिपीत लिहा. उर्दू लिपीचा वापर करू नका."
+                                if language == "Marathi"
+                                else None
+                            ),
+                          fp16=False
+                     )
 
                         voice_text = (
                             result["text"].strip()
